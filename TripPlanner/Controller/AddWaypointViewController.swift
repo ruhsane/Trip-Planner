@@ -8,28 +8,54 @@
 import UIKit
 import MapKit
 import GooglePlaces
+import CoreData
 
 class AddWaypointViewController: UIViewController, UISearchBarDelegate {
 
-    @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func saveBtn(_ sender: UIBarButtonItem) {
-    }
-
     @IBOutlet weak var mapView: MKMapView!
-    
-    //    @IBOutlet weak var searchBar: UISearchBar!
+    var mainTrip: Trips?
+
+    var placeName: String = ""
+    var waypointLat: Double = 0
+    var waypointLong: Double = 0
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
     var resultView: UITextView?
     
+    @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func saveBtn(_ sender: UIBarButtonItem) {
+        if mapView.annotations.count == 0 {
+            // if no annotation selected, raise alert view
+            let alert = UIAlertController(title: "Select a location first!", message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            saveWaypoint()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpMap()
         setupSearchBar()
+    }
+    
+    func saveWaypoint() {
+        // new waypoint entity
+        let waypoint = Waypoints(context: ManageTrip.managedContext)
+        waypoint.waypointName = placeName
+        waypoint.lat = waypointLat
+        waypoint.long = waypointLong
+        
+        // add to trip waypoints set
+        mainTrip?.addToWaypoints(waypoint)
+        ManageTrip.saveTrip()
+        navigationController?.popViewController(animated: true)
+
     }
     
     private func setupSearchBar() {
@@ -45,7 +71,9 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         mapView.addSubview(subView)
         searchController?.searchBar.sizeToFit()
         searchController?.hidesNavigationBarDuringPresentation = false
-        
+
+        self.navigationController?.isNavigationBarHidden = true;
+
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
         definesPresentationContext = true
@@ -56,35 +84,30 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         self.edgesForExtendedLayout = .top
     }
     
-    func setUpMap() {
-        resultsViewController = GMSAutocompleteResultsViewController()
-        resultsViewController?.delegate = self
-        
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-        
-        // Put the search bar in the navigation bar.
-        searchController?.searchBar.sizeToFit()
-        navigationItem.titleView = searchController?.searchBar
-        
-        // When UISearchController presents the results view, present it in
-        // this view controller, not one further up the chain.
-        definesPresentationContext = true
-        
-        // Prevent the navigation bar from being hidden when searching.
-        searchController?.hidesNavigationBarDuringPresentation = false
-    }
 }
 
 // Handle the user's selection.
 extension AddWaypointViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
+        
         searchController?.isActive = false
-        // Do something with the selected place.
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
+        
+        placeName = place.name!
+        waypointLat = place.coordinate.latitude
+        waypointLong = place.coordinate.longitude
+
+        let mapSpan = MKCoordinateSpan(latitudeDelta: 0.10, longitudeDelta: 0.10)
+        let region = MKCoordinateRegion(center: place.coordinate, span: mapSpan)
+
+        mapView.setRegion(region, animated: true)
+
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = place.coordinate
+        annotation.title = place.name
+        annotation.subtitle = place.formattedAddress
+        mapView.addAnnotation(annotation)
+        
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
