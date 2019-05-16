@@ -12,6 +12,9 @@
 		9D9954F3228D0CB10092C2B5 /* Waypoints+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954EF228D0CB10092C2B5 /* Waypoints+CoreDataClass.swift */; };
 		9D9954F4228D0CB10092C2B5 /* Waypoints+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954F0228D0CB10092C2B5 /* Waypoints+CoreDataProperties.swift */; };
 		9D9954F6228D0F950092C2B5 /* ManageTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954F5228D0F950092C2B5 /* ManageTrip.swift */; };
+		9D9954F9228D26020092C2B5 /* NoWaypointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954F8228D26020092C2B5 /* NoWaypointsViewController.swift */; };
+		9D9954FB228D264A0092C2B5 /* WaypointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954FA228D264A0092C2B5 /* WaypointsViewController.swift */; };
+		9D9954FD228D29310092C2B5 /* AddWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9954FC228D29310092C2B5 /* AddWaypointViewController.swift */; };
 		9DA382E922868E5E004EE9C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA382E822868E5E004EE9C9 /* AppDelegate.swift */; };
 		9DA382EB22868E5E004EE9C9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA382EA22868E5E004EE9C9 /* MainViewController.swift */; };
 		9DA382EE22868E5E004EE9C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA382EC22868E5E004EE9C9 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 		9D9954EF228D0CB10092C2B5 /* Waypoints+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoints+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9D9954F0228D0CB10092C2B5 /* Waypoints+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Waypoints+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		9D9954F5228D0F950092C2B5 /* ManageTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTrip.swift; sourceTree = "<group>"; };
+		9D9954F8228D26020092C2B5 /* NoWaypointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWaypointsViewController.swift; sourceTree = "<group>"; };
+		9D9954FA228D264A0092C2B5 /* WaypointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaypointsViewController.swift; sourceTree = "<group>"; };
+		9D9954FC228D29310092C2B5 /* AddWaypointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaypointViewController.swift; sourceTree = "<group>"; };
 		9DA382E522868E5E004EE9C9 /* TripPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA382E822868E5E004EE9C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DA382EA22868E5E004EE9C9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 			children = (
 				9DA3830C228CFF1E004EE9C9 /* AddTripViewController.swift */,
 				9DA382EA22868E5E004EE9C9 /* MainViewController.swift */,
+				9D9954F8228D26020092C2B5 /* NoWaypointsViewController.swift */,
+				9D9954FA228D264A0092C2B5 /* WaypointsViewController.swift */,
+				9D9954FC228D29310092C2B5 /* AddWaypointViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,7 +207,10 @@
 				9DA382EB22868E5E004EE9C9 /* MainViewController.swift in Sources */,
 				9DA382E922868E5E004EE9C9 /* AppDelegate.swift in Sources */,
 				9D9954F1228D0CB10092C2B5 /* Trips+CoreDataClass.swift in Sources */,
+				9D9954FD228D29310092C2B5 /* AddWaypointViewController.swift in Sources */,
+				9D9954F9228D26020092C2B5 /* NoWaypointsViewController.swift in Sources */,
 				9D9954F2228D0CB10092C2B5 /* Trips+CoreDataProperties.swift in Sources */,
+				9D9954FB228D264A0092C2B5 /* WaypointsViewController.swift in Sources */,
 				9D9954F6228D0F950092C2B5 /* ManageTrip.swift in Sources */,
 				9DA3830922869920004EE9C9 /* TripPlanner.xcdatamodeld in Sources */,
 			);

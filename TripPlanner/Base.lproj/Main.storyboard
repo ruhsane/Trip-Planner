@@ -69,26 +69,22 @@
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="782.8125"/>
         </scene>
-        <!--View Controller-->
+        <!--No Waypoints View Controller-->
         <scene sceneID="Lyx-aT-qej">
             <objects>
-                <viewController id="rUz-Gi-MqK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoWaypointsViewController" id="rUz-Gi-MqK" customClass="NoWaypointsViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C5x-qw-IYB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prA-Y3-VOv">
-                                <rect key="frame" x="186" y="412" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-B3-wzd">
                                 <rect key="frame" x="162" y="471" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Get Started!"/>
+                                <connections>
+                                    <action selector="addWaypointBtn:" destination="rUz-Gi-MqK" eventType="touchUpInside" id="y8D-Wa-mvp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You haven't added any waypoints to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWX-6z-cyk">
                                 <rect key="frame" x="33" y="277" width="348" height="118"/>
@@ -106,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="1011.5942028985507" y="1510.7142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Waypoints View Controller-->
         <scene sceneID="qT7-u9-o8O">
             <objects>
-                <viewController id="Mfa-gU-gMn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WaypointsViewController" id="Mfa-gU-gMn" customClass="WaypointsViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NCx-f1-dbR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +128,7 @@
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-Kh-Q31">
                                 <rect key="frame" x="1" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Your trip: xx" id="GQl-xV-7yh">
+                                    <navigationItem id="GQl-xV-7yh">
                                         <barButtonItem key="rightBarButtonItem" title="Add" id="4Tg-pj-uLe">
                                             <connections>
                                                 <segue destination="cod-TV-zuh" kind="showDetail" id="6l2-13-Rwh"/>
@@ -170,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="1511.3839285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Trip View Controller-->
         <scene sceneID="ewr-LP-ahF">
             <objects>
-                <viewController id="cod-TV-zuh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddWaypointViewController" id="cod-TV-zuh" customClass="AddTripViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pd3-dF-nY5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

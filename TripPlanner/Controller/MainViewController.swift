@@ -58,7 +58,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             // reload table view after deletion
             tableView.reloadData()
         }
-
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if trips[indexPath.row].waypoints?.count == 0 {
+            
+            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController") as? NoWaypointsViewController {
+                viewController.title = trips[indexPath.row].tripTitle
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+            
+        } else {
+            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController {
+                viewController.title = trips[indexPath.row].tripTitle
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+        }
     }
     
 }
