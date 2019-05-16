@@ -10,6 +10,15 @@ import UIKit
 
 class AddWaypointViewController: UIViewController {
 
+    @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func saveBtn(_ sender: UIBarButtonItem) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

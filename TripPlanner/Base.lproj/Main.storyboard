@@ -78,12 +78,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-B3-wzd">
-                                <rect key="frame" x="162" y="471" width="90" height="30"/>
+                                <rect key="frame" x="162" y="471" width="90" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Get Started!"/>
                                 <connections>
-                                    <action selector="addWaypointBtn:" destination="rUz-Gi-MqK" eventType="touchUpInside" id="y8D-Wa-mvp"/>
+                                    <segue destination="cod-TV-zuh" kind="showDetail" id="dER-bs-zcZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You haven't added any waypoints to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWX-6z-cyk">
@@ -121,12 +121,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add more waypoints"/>
+                                <connections>
+                                    <segue destination="cod-TV-zuh" kind="showDetail" id="CnV-5Y-mgg"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-Kh-Q31">
                                 <rect key="frame" x="1" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="GQl-xV-7yh">
-                                        <barButtonItem key="rightBarButtonItem" title="Add" id="4Tg-pj-uLe"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="4Tg-pj-uLe">
+                                            <connections>
+                                                <segue destination="cod-TV-zuh" kind="showDetail" id="fSf-Ow-ciT"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -172,8 +179,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Waypoint" id="s0T-YV-NUe">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="dxv-p7-yhT"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="MAU-7Q-e3q"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="dxv-p7-yhT">
+                                            <connections>
+                                                <action selector="cancelBtn:" destination="cod-TV-zuh" id="Bda-bC-YcU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="MAU-7Q-e3q">
+                                            <connections>
+                                                <action selector="saveBtn:" destination="cod-TV-zuh" id="Bvl-fo-F9u"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -257,4 +272,7 @@
             <point key="canvasLocation" x="266.66666666666669" y="782.8125"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dER-bs-zcZ"/>
+    </inferredMetricsTieBreakers>
 </document>
