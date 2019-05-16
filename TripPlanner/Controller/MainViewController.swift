@@ -45,4 +45,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // this method handles row deletion
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            // remove the item from the data model
+            trips.remove(at: indexPath.row)
+            let selectedTrip = self.trips[indexPath.row]
+            ManageTrip.deleteTrip(trip: selectedTrip)
+            
+            // reload table view after deletion
+            tableView.reloadData()
+        }
+
+    }
+    
 }
