@@ -64,7 +64,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "GOOGLE_PLACE_API_KEY"
-            value = "AIzaSyBxybChrRKpRWQglfyqcxg7B-f8IQNyJr8"
+            value = "&quot;AIzaSyCD3mT71oGQfDtLxeQFY-nQCNY2CrGjEyQ&quot;"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

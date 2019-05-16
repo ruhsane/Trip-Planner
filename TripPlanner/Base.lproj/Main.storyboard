@@ -174,9 +174,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-LF-13b">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-LF-13b">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Waypoint" id="s0T-YV-NUe">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="dxv-p7-yhT">
@@ -192,14 +191,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-ef-Waa">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LKj-ef-Waa" firstAttribute="leading" secondItem="dHu-51-RiO" secondAttribute="leading" id="1fJ-sT-YIY"/>
+                            <constraint firstItem="LKj-ef-Waa" firstAttribute="trailing" secondItem="dHu-51-RiO" secondAttribute="trailing" id="91G-qE-8qD"/>
+                            <constraint firstItem="LKj-ef-Waa" firstAttribute="top" secondItem="nHm-LF-13b" secondAttribute="bottom" id="ATf-sV-bNa"/>
+                            <constraint firstItem="LKj-ef-Waa" firstAttribute="bottom" secondItem="dHu-51-RiO" secondAttribute="bottom" id="FyS-8Z-md0"/>
+                            <constraint firstItem="nHm-LF-13b" firstAttribute="leading" secondItem="LKj-ef-Waa" secondAttribute="leading" id="NCi-Dh-aea"/>
+                            <constraint firstItem="nHm-LF-13b" firstAttribute="top" secondItem="dHu-51-RiO" secondAttribute="top" id="TZb-qR-beh"/>
+                            <constraint firstItem="nHm-LF-13b" firstAttribute="trailing" secondItem="LKj-ef-Waa" secondAttribute="trailing" id="ahm-Ni-Nca"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dHu-51-RiO"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mI7-P7-snq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2543" y="1513"/>
+            <point key="canvasLocation" x="2542.0289855072465" y="1512.7232142857142"/>
         </scene>
         <!--Add Trip View Controller-->
         <scene sceneID="P4r-eb-V0p">
