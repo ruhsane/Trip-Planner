@@ -13,7 +13,6 @@ class NoWaypointsViewController: UIViewController {
     @IBAction func addWaypointBtn(_ sender: Any) {
         
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddWaypointViewController") as? AddWaypointViewController {
-            viewController.title = trips[indexPath.row].tripTitle
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

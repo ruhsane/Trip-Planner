@@ -121,19 +121,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add more waypoints"/>
-                                <connections>
-                                    <segue destination="cod-TV-zuh" kind="showDetail" id="VIu-RI-oei"/>
-                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJf-Kh-Q31">
                                 <rect key="frame" x="1" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="GQl-xV-7yh">
-                                        <barButtonItem key="rightBarButtonItem" title="Add" id="4Tg-pj-uLe">
-                                            <connections>
-                                                <segue destination="cod-TV-zuh" kind="showDetail" id="6l2-13-Rwh"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="4Tg-pj-uLe"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -166,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="1511.3839285714284"/>
         </scene>
-        <!--Add Trip View Controller-->
+        <!--Add Waypoint View Controller-->
         <scene sceneID="ewr-LP-ahF">
             <objects>
-                <viewController storyboardIdentifier="AddWaypointViewController" id="cod-TV-zuh" customClass="AddTripViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddWaypointViewController" id="cod-TV-zuh" customClass="AddWaypointViewController" customModule="TripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pd3-dF-nY5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,7 +257,4 @@
             <point key="canvasLocation" x="266.66666666666669" y="782.8125"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6l2-13-Rwh"/>
-    </inferredMetricsTieBreakers>
 </document>
