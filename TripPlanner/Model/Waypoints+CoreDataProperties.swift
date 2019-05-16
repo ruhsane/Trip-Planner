@@ -17,9 +17,9 @@ extension Waypoints {
         return NSFetchRequest<Waypoints>(entityName: "Waypoints")
     }
 
-    @NSManaged public var waypointName: String?
-    @NSManaged public var long: Double
     @NSManaged public var lat: Double
+    @NSManaged public var long: Double
+    @NSManaged public var waypointName: String?
     @NSManaged public var trip: Trips?
 
 }

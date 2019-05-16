@@ -10,8 +10,11 @@ import UIKit
 
 class AddTripViewController: UIViewController {
 
+    var trips: [Trips] = []
+
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
@@ -32,6 +35,10 @@ class AddTripViewController: UIViewController {
         
     }
     
+    func createNewTrip() -> Item {
+        let newItem = NSEntityDescription.insertNewObject(forEntityName: "Trips", into: store.persistentContainer.viewContext) as! Item
+        return newItem
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
