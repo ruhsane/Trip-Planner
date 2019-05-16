@@ -54,7 +54,10 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         // add to trip waypoints set
         mainTrip?.addToWaypoints(waypoint)
         ManageTrip.saveTrip()
-        navigationController?.popViewController(animated: true)
+
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController
+//        viewController!.title = trips[indexPath.row].tripTitle
+        self.navigationController!.pushViewController(viewController!, animated: true)
 
     }
     
