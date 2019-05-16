@@ -57,7 +57,7 @@
                     <navigationItem key="navigationItem" title="Planned Trips" id="Tjc-z2-hJL">
                         <barButtonItem key="rightBarButtonItem" title="+" id="BMl-D7-DlJ">
                             <connections>
-                                <segue destination="tIa-UN-qce" kind="showDetail" id="BIx-B0-7tf"/>
+                                <segue destination="tIa-UN-qce" kind="presentation" id="K2g-3G-dgZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

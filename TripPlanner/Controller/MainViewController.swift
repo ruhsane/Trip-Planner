@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var trips = [String]()
+    var trips = [Trips]()
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,7 +31,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trip cell", for: indexPath) as! TripTableViewCell
-        // cell.tripTitle.text = trips[indexPath.row].name
+        cell.tripTitle.text = trips[indexPath.row].tripTitle
+        
         return cell
     }
     
