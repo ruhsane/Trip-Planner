@@ -61,6 +61,13 @@
             ReferencedContainer = "container:TripPlanner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "GOOGLE_PLACE_API_KEY"
+            value = "AIzaSyBxybChrRKpRWQglfyqcxg7B-f8IQNyJr8"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
