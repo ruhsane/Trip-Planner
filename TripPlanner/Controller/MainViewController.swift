@@ -10,7 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var trips = [Trips]()
+    var trips = [Trips]() {
+        didSet{
+            tableView.reloadData()
+        }
+    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,6 +23,11 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        trips = ManageTrip.getTrips()
     }
 
 }

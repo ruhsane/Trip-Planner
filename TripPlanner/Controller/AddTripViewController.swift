@@ -45,11 +45,6 @@ class AddTripViewController: UIViewController {
         
     }
     
-//    func createNewTrip() -> Trips {
-//        let newTrip = NSEntityDescription.insertNewObject(forEntityName: "Trips", into: store.persistentContainer.viewContext) as! Item
-//        return newTrip
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
