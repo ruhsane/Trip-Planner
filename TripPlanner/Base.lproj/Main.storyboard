@@ -78,12 +78,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-B3-wzd">
-                                <rect key="frame" x="162" y="471" width="90" height="29"/>
+                                <rect key="frame" x="162" y="471" width="90" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Get Started!"/>
                                 <connections>
-                                    <segue destination="cod-TV-zuh" kind="showDetail" id="dER-bs-zcZ"/>
+                                    <segue destination="cod-TV-zuh" kind="presentation" id="Ce3-h1-VAA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You haven't added any waypoints to your trip!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWX-6z-cyk">
@@ -97,10 +97,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="oxK-ET-657"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Lri-fK-fa9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfg-lZ-BFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="1510.7142857142856"/>
+            <point key="canvasLocation" x="1921.7391304347827" y="1510.7142857142856"/>
         </scene>
         <!--Waypoints View Controller-->
         <scene sceneID="qT7-u9-o8O">
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGD-Qx-OyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.826086956522" y="1511.3839285714284"/>
+            <point key="canvasLocation" x="2657.971014492754" y="1511.3839285714284"/>
         </scene>
         <!--Add Waypoint View Controller-->
         <scene sceneID="ewr-LP-ahF">
@@ -207,10 +208,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dHu-51-RiO"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="LKj-ef-Waa" id="fJf-p0-T9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mI7-P7-snq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2542.0289855072465" y="1512.7232142857142"/>
+            <point key="canvasLocation" x="3452.1739130434785" y="1512.7232142857142"/>
         </scene>
         <!--Add Trip View Controller-->
         <scene sceneID="P4r-eb-V0p">
@@ -282,8 +286,26 @@
             </objects>
             <point key="canvasLocation" x="266.66666666666669" y="782.8125"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iv6-Sm-GBb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G1X-Uq-Rmz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mN9-J3-d1S">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rUz-Gi-MqK" kind="relationship" relationship="rootViewController" id="nzF-BN-STN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pF0-SK-WTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011.5942028985507" y="1510.7142857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dER-bs-zcZ"/>
+        <segue reference="Ce3-h1-VAA"/>
     </inferredMetricsTieBreakers>
 </document>
