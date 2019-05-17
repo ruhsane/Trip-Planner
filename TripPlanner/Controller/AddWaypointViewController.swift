@@ -21,7 +21,6 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
     
     var resultsViewController: GMSAutocompleteResultsViewController?
     var searchController: UISearchController?
-    var resultView: UITextView?
     
     @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
@@ -54,8 +53,9 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         // add to trip waypoints set
         mainTrip?.addToWaypoints(waypoint)
         ManageTrip.saveTrip()
-
-
+        
+        print(mainTrip)
+        print(mainTrip?.waypoints?.count)
         
         if let controllersOnNavStack = self.navigationController?.viewControllers {
             let n = controllersOnNavStack.count

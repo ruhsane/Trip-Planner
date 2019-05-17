@@ -51,9 +51,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         if editingStyle == .delete {
             
+            print(self.trips)
             // remove the item from the data model
-            trips.remove(at: indexPath.row)
             let selectedTrip = self.trips[indexPath.row]
+            trips.remove(at: indexPath.row)
             ManageTrip.deleteTrip(trip: selectedTrip)
             
             // reload table view after deletion
@@ -62,11 +63,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if trips[indexPath.row].waypoints?.count == 0 {
             
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController")
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController") as! NoWaypointsViewController
+            viewController.mainTrip = trips[indexPath.row]
             viewController.title = trips[indexPath.row].tripTitle
             self.navigationController!.pushViewController(viewController, animated: true)
+            
             
         } else {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController

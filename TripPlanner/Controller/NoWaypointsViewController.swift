@@ -10,6 +10,15 @@ import UIKit
 
 class NoWaypointsViewController: UIViewController {
     
+    var mainTrip: Trips?
+    
+    @IBAction func addWaypointBtn(_ sender: Any) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddWaypointViewController") as? AddWaypointViewController
+        viewController?.mainTrip = mainTrip
+        self.navigationController!.pushViewController(viewController!, animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
