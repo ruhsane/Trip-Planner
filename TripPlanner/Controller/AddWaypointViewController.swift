@@ -65,6 +65,7 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
             } else {
                 
                 let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController
+                viewController?.mainTrip = mainTrip
                 self.navigationController!.pushViewController(viewController!, animated: true)
                 
             }

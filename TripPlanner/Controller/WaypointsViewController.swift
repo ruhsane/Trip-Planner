@@ -17,9 +17,21 @@ class WaypointsViewController: UIViewController {
     @IBOutlet weak var tripTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func addBarButton(_ sender: UIBarButtonItem) {
+        addWaypoint()
+    }
+    
+    @IBAction func TripsBtn(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func addWaypointButton(_ sender: UIButton) {
+        addWaypoint()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // set trip title
         self.tripTitle.text = mainTrip?.value(forKey: "tripTitle") as? String
         tableView.delegate = self
@@ -27,22 +39,24 @@ class WaypointsViewController: UIViewController {
         
     }
     
-    
-    @IBAction func TripsBtn(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         self.navigationController?.isNavigationBarHidden = true
-        tableView.reloadData()
         
         // fetch from coredata
         let waypointsArr = mainTrip?.waypoints
         allWaypointsInThisTrip = waypointsArr
         
+        tableView.reloadData()
+
         
+    }
+    
+    func addWaypoint() {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddWaypointViewController") as? AddWaypointViewController
+        viewController?.mainTrip = mainTrip
+        self.navigationController!.pushViewController(viewController!, animated: true)
     }
     
 }
