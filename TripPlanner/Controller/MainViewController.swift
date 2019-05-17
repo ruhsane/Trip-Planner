@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         trips = ManageTrip.getTrips()
+        self.navigationController?.isNavigationBarHidden = false
     }
 
 }
@@ -63,9 +64,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if trips[indexPath.row].waypoints?.count == 0 {
             
-            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController") as? NoWaypointsViewController
-            viewController!.title = trips[indexPath.row].tripTitle
-            self.navigationController!.pushViewController(viewController!, animated: true)
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController")
+            viewController.title = trips[indexPath.row].tripTitle
+            self.navigationController!.pushViewController(viewController, animated: true)
             
         } else {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController

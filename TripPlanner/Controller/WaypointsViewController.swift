@@ -10,21 +10,50 @@ import UIKit
 
 class WaypointsViewController: UIViewController {
 
+    var currentTrip: Trips?
+    var allWaypointsInThisTrip: NSMutableOrderedSet?
+    
+
+    @IBOutlet weak var tripTitle: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // set trip title
+        self.tripTitle.text = currentTrip?.value(forKey: "tripTitle") as? String
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func TripsBtn(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
+        tableView.reloadData()
+        
+        // fetch from coredata
+        let waypointsArr = currentTrip?.waypoints
+        allWaypointsInThisTrip = waypointsArr
+    }
+    
+}
+
+extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentTrip?.waypoints?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let singleWaypoint = currentTrip?.waypoints?[indexPath.row] as? Waypoints
+        let cell = tableView.dequeueReusableCell(withIdentifier: "waypoint cell", for: indexPath) as! WaypointTableViewCell
+        cell.waypointTitle?.text = singleWaypoint?.waypointName
+        return cell
+    }
+    
 }

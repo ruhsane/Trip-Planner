@@ -55,13 +55,28 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         mainTrip?.addToWaypoints(waypoint)
         ManageTrip.saveTrip()
 
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController
-//        viewController!.title = trips[indexPath.row].tripTitle
-        self.navigationController!.pushViewController(viewController!, animated: true)
+
+        
+        if let controllersOnNavStack = self.navigationController?.viewControllers {
+            let n = controllersOnNavStack.count
+            
+            // if we initiated this from WaypointsController, go back to WaypointController (just pop)
+            if controllersOnNavStack[n-2].restorationIdentifier == "WaypointsViewController" {
+                self.navigationController?.popViewController(animated: true)
+                
+            // if we initiated from NoWaypointController, PUSH WaitpointController on top because now we have waypoint
+            } else {
+                
+                let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController
+                self.navigationController!.pushViewController(viewController!, animated: true)
+                
+            }
+        }
 
     }
     
     private func setupSearchBar() {
+        
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
         
