@@ -64,17 +64,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if trips[indexPath.row].waypoints?.count == 0 {
+        let currentTrip = trips[indexPath.row]
+        
+        if currentTrip.waypoints?.count == 0 {
             
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoWaypointsViewController") as! NoWaypointsViewController
-            viewController.mainTrip = trips[indexPath.row]
-            viewController.title = trips[indexPath.row].tripTitle
+            viewController.mainTrip = currentTrip
+            viewController.title = currentTrip.tripTitle
             self.navigationController!.pushViewController(viewController, animated: true)
             
             
         } else {
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WaypointsViewController") as? WaypointsViewController
-            viewController!.title = trips[indexPath.row].tripTitle
+            viewController!.mainTrip = currentTrip
             self.navigationController!.pushViewController(viewController!, animated: true)
             
         }

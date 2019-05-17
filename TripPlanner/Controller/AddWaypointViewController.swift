@@ -54,9 +54,6 @@ class AddWaypointViewController: UIViewController, UISearchBarDelegate {
         mainTrip?.addToWaypoints(waypoint)
         ManageTrip.saveTrip()
         
-        print(mainTrip)
-        print(mainTrip?.waypoints?.count)
-        
         if let controllersOnNavStack = self.navigationController?.viewControllers {
             let n = controllersOnNavStack.count
             

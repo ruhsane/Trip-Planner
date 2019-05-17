@@ -10,7 +10,7 @@ import UIKit
 
 class WaypointsViewController: UIViewController {
 
-    var currentTrip: Trips?
+    var mainTrip: Trips?
     var allWaypointsInThisTrip: NSMutableOrderedSet?
     
 
@@ -21,7 +21,7 @@ class WaypointsViewController: UIViewController {
         super.viewDidLoad()
 
         // set trip title
-        self.tripTitle.text = currentTrip?.value(forKey: "tripTitle") as? String
+        self.tripTitle.text = mainTrip?.value(forKey: "tripTitle") as? String
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -34,25 +34,28 @@ class WaypointsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
+        
+        self.navigationController?.isNavigationBarHidden = true
         tableView.reloadData()
         
         // fetch from coredata
-        let waypointsArr = currentTrip?.waypoints
+        let waypointsArr = mainTrip?.waypoints
         allWaypointsInThisTrip = waypointsArr
+        
+        
     }
     
 }
 
 extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentTrip?.waypoints?.count ?? 0
+        return mainTrip?.waypoints?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let singleWaypoint = currentTrip?.waypoints?[indexPath.row] as? Waypoints
+        let singleWaypoint = mainTrip?.waypoints?[indexPath.row] as! Waypoints	
         let cell = tableView.dequeueReusableCell(withIdentifier: "waypoint cell", for: indexPath) as! WaypointTableViewCell
-        cell.waypointTitle?.text = singleWaypoint?.waypointName
+        cell.waypointTitle?.text = singleWaypoint.waypointName
         return cell
     }
     
