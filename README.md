@@ -13,11 +13,11 @@ An iOS app that allows users to plan trips. Users can create trips and trips are
 - List of Trips
 - This screen supports deleting trips by using the iOS swipe-to-delete feature.
 
-![screenshots](Screenshots/1.png)
+<img src= "Screenshots/1.png" width = 250 height = 550> </img>
 
 ### Add Trip Screen
 
-![screenshots](Screenshots/2.png)
+<img src= "Screenshots/2.png" width = 250 height = 550> </img>
 
 ### Trip Detail Screen
 
@@ -25,8 +25,8 @@ An iOS app that allows users to plan trips. Users can create trips and trips are
 - If the trip doesn't have any waypoints yet, the screen shows another view which has a button to add waypoints
 - This screen supports deleting waypoints by using the iOS swipe-to-delete feature.
 
-![screenshots](Screenshots/3.png)
-![screenshots](Screenshots/4.png)
+<img src= "Screenshots/3.png" width = 250 height = 550> </img>
+<img src= "Screenshots/4.png" width = 250 height = 550> </img>
 
 
 ### Add Waypoint Screen
@@ -36,7 +36,8 @@ An iOS app that allows users to plan trips. Users can create trips and trips are
 - The user can select an entry. The selected entry will be highlighted on the map.
 - By using the *save* button, it should update the waypoints for the trip.
 
-![screenshots](Screenshots/5.png)
-![screenshots](Screenshots/6.png)
-![screenshots](Screenshots/7.png)
-![screenshots](Screenshots/8.png)
+<img src= "Screenshots/5.png" width = 250 height = 550> </img>
+<img src= "Screenshots/6.png" width = 250 height = 550> </img>
+<img src= "Screenshots/7.png" width = 250 height = 550> </img>
+<img src= "Screenshots/8.png" width = 250 height = 550> </img>
+
