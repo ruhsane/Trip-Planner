@@ -62,10 +62,12 @@ class WaypointsViewController: UIViewController {
 }
 
 extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
+    // waypoint count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainTrip?.waypoints?.count ?? 0
     }
     
+    // populate waypoints cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let singleWaypoint = mainTrip?.waypoints?[indexPath.row] as! Waypoints	
         let cell = tableView.dequeueReusableCell(withIdentifier: "waypoint cell", for: indexPath) as! WaypointTableViewCell
@@ -73,6 +75,7 @@ extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // delete waypoint
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let singleWaypoint = mainTrip?.waypoints?[indexPath.row] as? Waypoints
         if editingStyle == .delete {
@@ -80,6 +83,18 @@ extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
             ManageTrip.saveTrip()
             tableView.reloadData()
         }
+    }
+    
+    // show detail for waypoint on select
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let displayWaypointVC = storyboard.instantiateViewController(withIdentifier: "DetailWaypointViewController") as! DetailWaypointViewController
+        displayWaypointVC.title = mainTrip?.value(forKey: "tripTitle") as? String
+        let singleWaypoint = mainTrip?.waypoints?[indexPath.row] as? Waypoints
+        displayWaypointVC.lat = singleWaypoint?.lat
+        displayWaypointVC.lng = singleWaypoint?.long
+        displayWaypointVC.name = singleWaypoint?.waypointName
+        self.navigationController?.pushViewController(displayWaypointVC, animated: true)
     }
     
 }
