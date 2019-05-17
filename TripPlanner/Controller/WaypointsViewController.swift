@@ -73,4 +73,13 @@ extension WaypointsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let singleWaypoint = mainTrip?.waypoints?[indexPath.row] as? Waypoints
+        if editingStyle == .delete {
+            ManageTrip.managedContext.delete(singleWaypoint!)
+            ManageTrip.saveTrip()
+            tableView.reloadData()
+        }
+    }
+    
 }
