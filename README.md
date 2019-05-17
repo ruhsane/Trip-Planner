@@ -56,10 +56,6 @@ An iOS app that allows users to plan trips. Users can create trips and trips are
 <img src= "Screenshots/7.png" width = 250 height = 550> </img>
 </kbd>
 
-<kbd>
-<img src= "Screenshots/8.png" width = 250 height = 550> </img>
-</kbd>
-
 ### Waypoint Detail Screen
 
 <kbd>
